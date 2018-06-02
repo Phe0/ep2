@@ -7,8 +7,10 @@ import java.io.FileReader;
 import java.io.IOException;
 import java.lang.reflect.Array;
 import java.util.Scanner;
+import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 
 
 public class Arquivo extends JFrame{
@@ -100,9 +102,21 @@ public class Arquivo extends JFrame{
             
             getContentPane().setLayout(new BorderLayout());
             setTitle("Escavação");
-            getContentPane().add("Center",canvas);
+            getContentPane().add(canvas, BorderLayout.CENTER);
             
-            setSize(canvas.RECT_WIDTH * canvas.getLargura(), canvas.RECT_HEIGHT * canvas.getAltura());
+            setSize((canvas.RECT_WIDTH * canvas.getLargura()), (canvas.RECT_HEIGHT * canvas.getAltura()+35));
+            
+            JButton botaoDinamite = new JButton("Dinamite");  
+            JButton botaoDetector = new JButton("Detector");
+            JButton botaoEscavadeira = new JButton("Escavadeira");
+            
+            JPanel panel = new JPanel();
+            
+            panel.add(botaoDinamite); 
+            panel.add(botaoDetector);   
+            panel.add(botaoEscavadeira);
+                        
+            getContentPane().add(panel, BorderLayout.SOUTH);
             
             setVisible(true);
             
