@@ -5,6 +5,7 @@ import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
 import java.io.IOException;
+import java.lang.reflect.Array;
 import java.util.Scanner;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
@@ -18,7 +19,7 @@ public class Arquivo extends JFrame{
     private int largura;
     private int altura; 
     
-    private int[][] matriz;
+    private int matriz = 0;
     
     private int quantidadeCristais[] = new int [5];
     
@@ -65,10 +66,12 @@ public class Arquivo extends JFrame{
                     
                     if(contador >= 5 && contador < 5 + this.altura){
                         char[] arrayValores = linha.toCharArray();
-                        this.matriz = new int[this.altura][this.largura];
+                        
+                        //this.matriz = new int[this.altura][this.largura];
                         
                         for (int j = 0; j < arrayValores.length; j++){
-                            this.matriz[i][j] = Integer.parseInt(String.valueOf(arrayValores[j]));
+                            this.matriz = Integer.parseInt(String.valueOf(arrayValores[j]));
+                            canvas.setMatrizNum(j, i , this.matriz);
                         }
                         
                         i++;
