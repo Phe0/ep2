@@ -47,10 +47,14 @@ public class CanvasJogo extends Canvas {
 		ImageIcon icon = new ImageIcon("images/blue.png");
 		ImageIcon iconShotErro = new ImageIcon("images/red.png");
                 ImageIcon iconShotAcerto = new ImageIcon("images/green.png");
+                ImageIcon iconSeeAcerto = new ImageIcon("images/yellow.png");
+                ImageIcon iconSeeErro = new ImageIcon("images/purple.jpg");
 		// Prepare an Image object to be used by drawImage()
 		final Image img = icon.getImage();
 		final Image imgShotErro = iconShotErro.getImage();
                 final Image imgShotAcerto = iconShotAcerto.getImage();
+                final Image imgSeeErro = iconSeeErro.getImage();
+                final Image imgSeeAcerto = iconSeeAcerto.getImage();
 		
 		for(int i = 0; i < this.largura; i++) {
 			for(int j = 0; j < this.altura; j++) {				
@@ -60,6 +64,14 @@ public class CanvasJogo extends Canvas {
 				}
                                 else if(explosionMatrix[i][j] == 7) {
 					g.drawImage(imgShotAcerto, i*RECT_WIDTH+MARGIN, j*RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
+                                   
+                                }
+                                else if(explosionMatrix[i][j] == 8) {
+					g.drawImage(imgSeeErro, i*RECT_WIDTH+MARGIN, j*RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
+                                   
+                                }                               
+                                else if(explosionMatrix[i][j] == 9) {
+					g.drawImage(imgSeeAcerto, i*RECT_WIDTH+MARGIN, j*RECT_HEIGHT+MARGIN, RECT_WIDTH, RECT_HEIGHT, null);
                                    
                                 }
 			}

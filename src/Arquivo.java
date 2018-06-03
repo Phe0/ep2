@@ -92,6 +92,8 @@ public class Arquivo extends JFrame{
                     contador++;
                 }
                 
+                jogador.setContadorPa((jogador.getLargura()*jogador.getAltura()/3));
+                
                 leitorArquivo.close();
                 
             }catch (IOException ex) {
@@ -109,11 +111,11 @@ public class Arquivo extends JFrame{
             
             setSize((jogador.RECT_WIDTH * jogador.getLargura()), (jogador.RECT_HEIGHT * jogador.getAltura()+35));
             
-            JButton botaoPa = new JButton("Pá");
-            JButton botaoDinamite = new JButton("Dinamite");  
-            JButton botaoDetector = new JButton("Detector");
-            JButton botaoEscavadeiraLinha = new JButton("Escavadeira Linha");
-            JButton botaoEscavadeiraColuna = new JButton("Escavadeira Coluna");
+            JButton botaoPa = new JButton("Pá x"+jogador.getContadorPa());
+            JButton botaoDinamite = new JButton("Dinamite x"+jogador.getContadorDinamite());  
+            JButton botaoDetector = new JButton("Detector x"+jogador.getContadorDetector());
+            JButton botaoEscavadeiraLinha = new JButton("Escavadeira Linha x"+jogador.getContadorEscavadeiraLinha());
+            JButton botaoEscavadeiraColuna = new JButton("Escavadeira Coluna x"+jogador.getContadorEscavadeiraColuna());
             
             JPanel panel = new JPanel();
             
@@ -141,13 +143,13 @@ public class Arquivo extends JFrame{
                     botaoDinamiteActionPerformed(evt);
                 }
             });
-/*            
+            
             botaoDetector.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     botaoDetectorActionPerformed(evt);
                 }
             });
-*/            
+            
             botaoEscavadeiraLinha.addActionListener(new java.awt.event.ActionListener() {
                 public void actionPerformed(java.awt.event.ActionEvent evt) {
                     botaoEscavadeiraLinhaActionPerformed(evt);
@@ -205,11 +207,11 @@ public class Arquivo extends JFrame{
     private void botaoDinamiteActionPerformed(java.awt.event.ActionEvent evt){
         this.tipo = 2;
     }
-    /*    
+    
     private void botaoDetectorActionPerformed(java.awt.event.ActionEvent evt){
         this.tipo = 3;
     }        
-     */
+
     private void botaoEscavadeiraLinhaActionPerformed(java.awt.event.ActionEvent evt){
         this.tipo = 4;
     }

@@ -1,3 +1,6 @@
+
+import javax.swing.JOptionPane;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -10,86 +13,88 @@
  */
 public class Jogador extends CanvasJogo{
     
-    private int contadorPa = 0;
-    private int contadorDinamite = 0;
-    private int contadorDetector = 0;
-    private int contadorEscavadeiraLinha = 0;
-    private int contadorEscavadeiraColuna = 0;
+    private int contadorPa;
+    private int contadorDinamite = 3;
+    private int contadorDetector = 2;
+    private int contadorEscavadeiraLinha = 1;
+    private int contadorEscavadeiraColuna = 1;
+    
+    private int pontos;
     
     public void mouseClick(int tipo, int x, int y){
-        if(tipo == 1){
-            if(getMatrizNum(x, y) == 0){
+        if(tipo == 1 && contadorPa > 0 && getMatrizNum(x, y) != 6 && getMatrizNum(x, y) != 7){
+            if(getMatrizNum(x, y) == 0 || getMatrizNum(x, y) == 8){
 		setMatrizNum(x, y, 6);
-            }
-            else if(getMatrizNum(x, y) == 6){
-                setMatrizNum(x, y, 6);
-            }
-             else if(getMatrizNum(x, y) == 7){
-                setMatrizNum(x, y, 7);
             }           
             else {
                 setMatrizNum(x, y, 7);
             }
+            contadorPa--;
         }
-        else if(tipo == 2){
-            if(getMatrizNum(x, y) == 0){
+        else if(tipo == 2 && contadorDinamite > 0 && getMatrizNum(x, y) != 6 && getMatrizNum(x, y) != 7 && getMatrizNum(x+1, y) != 6 && getMatrizNum(x+1, y) != 7 && getMatrizNum(x, y+1) != 6 && getMatrizNum(x, y+1) != 7 && getMatrizNum(x+1, y+1) != 6 && getMatrizNum(x+1, y+1) != 7){
+            if(getMatrizNum(x, y) == 0 || getMatrizNum(x, y) == 8){
 		setMatrizNum(x, y, 6);
-            }
-            else if(getMatrizNum(x, y) == 6){
-                setMatrizNum(x, y, 6);
-            }
-             else if(getMatrizNum(x, y) == 7){
-                setMatrizNum(x, y, 7);
-            }           
+            }          
             else {
                 setMatrizNum(x, y, 7);
             } 
             
-            if(getMatrizNum(x+1, y) == 0){
+            if(getMatrizNum(x+1, y) == 0 || getMatrizNum(x+1, y) == 8){
 		setMatrizNum(x+1, y, 6);
-            }
-            else if(getMatrizNum(x+1, y) == 6){
-                setMatrizNum(x+1, y, 6);
-            }
-             else if(getMatrizNum(x+1, y) == 7){
-                setMatrizNum(x+1, y, 7);
             }           
             else {
                 setMatrizNum(x+1, y, 7);
             } 
             
-            if(getMatrizNum(x, y+1) == 0){
+            if(getMatrizNum(x, y+1) == 0 || getMatrizNum(x, y+1) == 8){
 		setMatrizNum(x, y+1, 6);
-            }
-            else if(getMatrizNum(x, y+1) == 6){
-                setMatrizNum(x, y+1, 6);
-            }
-             else if(getMatrizNum(x, y+1) == 7){
-                setMatrizNum(x, y+1, 7);
             }           
             else {
                 setMatrizNum(x, y+1, 7);
             }   
             
-            if(getMatrizNum(x+1, y+1) == 0){
+            if(getMatrizNum(x+1, y+1) == 0 || getMatrizNum(x+1, y+1) == 8){
 		setMatrizNum(x+1, y+1, 6);
-            }
-            else if(getMatrizNum(x+1, y+1) == 6){
-                setMatrizNum(x+1, y+1, 6);
-            }
-             else if(getMatrizNum(x+1, y+1) == 7){
-                setMatrizNum(x+1, y+1, 7);
             }           
             else {
                 setMatrizNum(x+1, y+1, 7);
             }
+            contadorDinamite--;
         }
-        else if(tipo == 3){
+        
+        else if(tipo == 3 && contadorDetector > 0 && getMatrizNum(x, y) != 6 && getMatrizNum(x, y) != 7 && getMatrizNum(x+1, y) != 6 && getMatrizNum(x+1, y) != 7 && getMatrizNum(x, y+1) != 6 && getMatrizNum(x, y+1) != 7 && getMatrizNum(x+1, y+1) != 6 && getMatrizNum(x+1, y+1) != 7 && getMatrizNum(x, y) != 8 && getMatrizNum(x, y) != 9 && getMatrizNum(x+1, y) != 8 && getMatrizNum(x+1, y) != 9 && getMatrizNum(x, y+1) != 8 && getMatrizNum(x, y+1) != 9 && getMatrizNum(x+1, y+1) != 8 && getMatrizNum(x+1, y+1) != 9){
+            if(getMatrizNum(x, y) == 0){
+		setMatrizNum(x, y, 8);
+            }          
+            else {
+                setMatrizNum(x, y, 9);
+            } 
             
+            if(getMatrizNum(x+1, y) == 0){
+		setMatrizNum(x+1, y, 8);
+            }           
+            else {
+                setMatrizNum(x+1, y, 9);
+            } 
+            
+            if(getMatrizNum(x, y+1) == 0){
+		setMatrizNum(x, y+1, 8);
+            }           
+            else {
+                setMatrizNum(x, y+1, 9);
+            }   
+            
+            if(getMatrizNum(x+1, y+1) == 0){
+		setMatrizNum(x+1, y+1, 8);
+            }           
+            else {
+                setMatrizNum(x+1, y+1, 9);
+            }
+            contadorDetector--;
         }
-        else if(tipo == 4){
+        else if(tipo == 4 && contadorEscavadeiraLinha > 0){
             for(int contador = 0; contador < getLargura(); contador++){
-                if(getMatrizNum(contador, y) == 0){
+                if(getMatrizNum(contador, y) == 0 || getMatrizNum(contador, y) == 8){
                     setMatrizNum(contador, y, 6);
                 }
                 else if(getMatrizNum(contador, y) == 6){
@@ -101,11 +106,12 @@ public class Jogador extends CanvasJogo{
                 else {
                     setMatrizNum(contador, y, 7);
                 }
-            }             
+            }
+            contadorEscavadeiraLinha--;
         }
-        else if(tipo == 5){
+        else if(tipo == 5 && contadorEscavadeiraColuna > 0){
             for(int contador = 0; contador < getAltura(); contador++){
-                if(getMatrizNum(x, contador) == 0){
+                if(getMatrizNum(x, contador) == 0 || getMatrizNum(x, y) == 8){
                     setMatrizNum(x, contador, 6);
                 }
                 else if(getMatrizNum(x, contador) == 6){
@@ -117,8 +123,62 @@ public class Jogador extends CanvasJogo{
                 else {
                     setMatrizNum(x, contador, 7);
                 }
-            }            
+            }
+            contadorEscavadeiraColuna--;            
+        }
+        
+        else if(tipo == 1 && contadorPa == 0){
+            JOptionPane.showMessageDialog(null,"Suas pás acabaram");
+        }
+        else if(tipo == 2 && contadorDinamite == 0){
+            JOptionPane.showMessageDialog(null,"Suas dinamites acabaram");
+        }
+        else if(tipo == 3 && contadorDetector == 0){
+            JOptionPane.showMessageDialog(null,"Seus detectores acabaram");
+        }
+        else if(tipo == 4 && contadorEscavadeiraLinha == 0){
+            JOptionPane.showMessageDialog(null,"Suas escavadeiras de linha acabaram");
+        }
+        else if(tipo == 5 && contadorEscavadeiraColuna == 0){
+            JOptionPane.showMessageDialog(null,"Suas escavadeiras de coluna acabaram");
         }
     }
     
+    public void setContadorPa(int quantidade){
+        this.contadorPa = quantidade;
+    }
+    
+    public int getContadorPa(){
+        return this.contadorPa;
+    }
+    public void setContadorDinamite(int quantidade){
+        this.contadorDinamite = quantidade;
+    }
+    
+    public int getContadorDinamite(){
+        return this.contadorDinamite;
+    }
+    public void setContadorDetector(int quantidade){
+        this.contadorDetector = quantidade;
+    }
+    
+    public int getContadorDetector(){
+        return this.contadorDetector;
+    }
+    public void setContadorEscavadeiraLinha(int quantidade){
+        this.contadorEscavadeiraLinha = quantidade;
+    }
+    
+    public int getContadorEscavadeiraLinha(){
+        return this.contadorEscavadeiraLinha;
+    }
+    public void setContadorEscavadeiraColuna(int quantidade){
+        this.contadorEscavadeiraColuna = quantidade;
+    }
+    
+    public int getContadorEscavadeiraColuna(){
+        return this.contadorEscavadeiraColuna;
+    }
 }
+
+//JOptionPane.showMessageDialog(null,"mensagem");
