@@ -1,11 +1,11 @@
 import java.awt.Graphics;
 
 public class CanvasThread extends Thread {
-	private CanvasJogo canvas;
+	private Jogador jogador;
 	private boolean running = true; 
 	
-	public CanvasThread(CanvasJogo canvas) {
-		this.canvas = canvas;
+	public CanvasThread(Jogador jogador) {
+		this.jogador = jogador;
 	}
 	
 	@Override
@@ -16,7 +16,7 @@ public class CanvasThread extends Thread {
 			} catch (InterruptedException e) {
 				e.printStackTrace();
 			}
-			canvas.paint(canvas.getGraphics());
+			jogador.paint(jogador.getGraphics());
 		}
 	}
 }

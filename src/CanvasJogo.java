@@ -4,8 +4,10 @@ import java.awt.Image;
 import java.io.File;
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.TimerTask;
 
 import javax.swing.ImageIcon;
+import java.util.Timer;
 
 public class CanvasJogo extends Canvas {
 	
@@ -64,22 +66,38 @@ public class CanvasJogo extends Canvas {
 
 		}	
 	}
-	
-	public void setShot(int x, int y) {
-            if(explosionMatrix[x][y] == 0){
-		explosionMatrix[x][y] = 6;
-            }
-            else if(explosionMatrix[x][y] == 6){
-                explosionMatrix[x][y] = 6;
-            }
-             else if(explosionMatrix[x][y] == 7){
-                explosionMatrix[x][y] = 7;
-            }           
-            else {
-                explosionMatrix[x][y] = 7;
-            }
+        
+/*
+	public synchronized void setDetector(int x, int y) {
+            
+            Timer tempo = new Timer();
+            
+            final long segundos = (1000 * 3);
+            
+            TimerTask mudanca = new TimerTask() {
+                
+                @Override
+                public void run() {
+                    if(explosionMatrix[x][y] == 0){
+                        explosionMatrix[x][y] = 6;
+                    }
+                    else if(explosionMatrix[x][y] == 6){
+                        explosionMatrix[x][y] = 6;
+                    }
+                     else if(explosionMatrix[x][y] == 7){
+                        explosionMatrix[x][y] = 7;
+                    }           
+                    else {
+                        explosionMatrix[x][y] = 7;
+                    }
+                }
+            };
+            
+            tempo.schedule(mudanca, 0, segundos);
+            
         }
-
+        */
+        
 	public int getLargura() {
             return this.largura;
 	}
@@ -96,8 +114,12 @@ public class CanvasJogo extends Canvas {
             this.altura = altura;
 	}
         
-        public void setMatrizNum(int j, int i, int matrizNum){
-            this.explosionMatrix[j][i] = matrizNum;
+        public void setMatrizNum(int x, int y, int matrizNum){
+            this.explosionMatrix[x][y] = matrizNum;
+        }
+        
+        public int getMatrizNum(int x, int y){
+            return this.explosionMatrix[x][y];
         }
 	
 }
