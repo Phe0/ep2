@@ -79,37 +79,6 @@ public class CanvasJogo extends Canvas {
 		}	
 	}
         
-/*
-	public synchronized void setDetector(int x, int y) {
-            
-            Timer tempo = new Timer();
-            
-            final long segundos = (1000 * 3);
-            
-            TimerTask mudanca = new TimerTask() {
-                
-                @Override
-                public void run() {
-                    if(explosionMatrix[x][y] == 0){
-                        explosionMatrix[x][y] = 6;
-                    }
-                    else if(explosionMatrix[x][y] == 6){
-                        explosionMatrix[x][y] = 6;
-                    }
-                     else if(explosionMatrix[x][y] == 7){
-                        explosionMatrix[x][y] = 7;
-                    }           
-                    else {
-                        explosionMatrix[x][y] = 7;
-                    }
-                }
-            };
-            
-            tempo.schedule(mudanca, 0, segundos);
-            
-        }
-        */
-        
 	public int getLargura() {
             return this.largura;
 	}

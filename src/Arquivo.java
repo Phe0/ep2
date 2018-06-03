@@ -10,6 +10,7 @@ import java.util.Scanner;
 import javax.swing.JButton;
 import javax.swing.JFileChooser;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 
@@ -120,11 +121,14 @@ public class Arquivo extends JFrame{
             
             JPanel panel = new JPanel();
             
+            JLabel pontos = new JLabel("Pontos: "+jogador.getPontos());
+            
             panel.add(botaoPa);
             panel.add(botaoDinamite); 
             panel.add(botaoDetector);   
             panel.add(botaoEscavadeiraLinha);
             panel.add(botaoEscavadeiraColuna);
+            panel.add(pontos);
             
             getContentPane().add(panel, BorderLayout.SOUTH);
             
@@ -181,6 +185,14 @@ public class Arquivo extends JFrame{
                     int y_pos = y / jogador.RECT_HEIGHT;
 
                     jogador.mouseClick(getTipo(),x_pos, y_pos);
+                    
+                    pontos.setText("Pontos: "+ jogador.getPontos() );
+                    
+                    botaoPa.setText("Pá x"+jogador.getContadorPa());
+                    botaoDinamite.setText("Dinamite x"+jogador.getContadorDinamite());
+                    botaoDetector.setText("Detector x"+jogador.getContadorDetector());
+                    botaoEscavadeiraLinha.setText("Escavadeira Linha x"+jogador.getContadorEscavadeiraLinha());
+                    botaoEscavadeiraColuna.setText("Escavadeira Coluna x"+jogador.getContadorEscavadeiraColuna());
 
                 }
 

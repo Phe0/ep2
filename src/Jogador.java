@@ -169,6 +169,8 @@ public class Jogador extends CanvasJogo{
             JOptionPane.showMessageDialog(null,"O jogo acabou ;-;");
             System.exit(0);
         }
+        
+        
     }
     
     public void setContadorPa(int quantidade){
@@ -222,6 +224,10 @@ public class Jogador extends CanvasJogo{
     }
     public void somaAcertos(){
         this.acertos++;
+    }
+    
+    public int getPontos(){
+        return this.pontos;
     }
 }
 
