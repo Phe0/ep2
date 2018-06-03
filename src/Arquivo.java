@@ -92,6 +92,7 @@ public class Arquivo extends JFrame{
                     contador++;
                 }
                 
+                jogador.setAcertosMax(this.quantidadeCristais[0]+this.quantidadeCristais[1]+this.quantidadeCristais[2]+this.quantidadeCristais[3]+this.quantidadeCristais[4]);                
                 jogador.setContadorPa((jogador.getLargura()*jogador.getAltura()/3));
                 
                 leitorArquivo.close();

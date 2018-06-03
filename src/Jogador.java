@@ -20,14 +20,19 @@ public class Jogador extends CanvasJogo{
     private int contadorEscavadeiraColuna = 1;
     
     private int pontos;
+    private int acertos;
+    private int acertosMax;
     
     public void mouseClick(int tipo, int x, int y){
         if(tipo == 1 && contadorPa > 0 && getMatrizNum(x, y) != 6 && getMatrizNum(x, y) != 7){
             if(getMatrizNum(x, y) == 0 || getMatrizNum(x, y) == 8){
 		setMatrizNum(x, y, 6);
+                perdePontos();
             }           
             else {
                 setMatrizNum(x, y, 7);
+                ganhaPontos();
+                somaAcertos();
             }
             contadorPa--;
         }
@@ -37,6 +42,8 @@ public class Jogador extends CanvasJogo{
             }          
             else {
                 setMatrizNum(x, y, 7);
+                ganhaPontos();
+                somaAcertos();
             } 
             
             if(getMatrizNum(x+1, y) == 0 || getMatrizNum(x+1, y) == 8){
@@ -44,6 +51,8 @@ public class Jogador extends CanvasJogo{
             }           
             else {
                 setMatrizNum(x+1, y, 7);
+                ganhaPontos();
+                somaAcertos();
             } 
             
             if(getMatrizNum(x, y+1) == 0 || getMatrizNum(x, y+1) == 8){
@@ -51,6 +60,8 @@ public class Jogador extends CanvasJogo{
             }           
             else {
                 setMatrizNum(x, y+1, 7);
+                ganhaPontos();
+                somaAcertos();
             }   
             
             if(getMatrizNum(x+1, y+1) == 0 || getMatrizNum(x+1, y+1) == 8){
@@ -58,6 +69,8 @@ public class Jogador extends CanvasJogo{
             }           
             else {
                 setMatrizNum(x+1, y+1, 7);
+                ganhaPontos();
+                somaAcertos();
             }
             contadorDinamite--;
         }
@@ -105,6 +118,8 @@ public class Jogador extends CanvasJogo{
                 }           
                 else {
                     setMatrizNum(contador, y, 7);
+                    ganhaPontos();
+                    somaAcertos();
                 }
             }
             contadorEscavadeiraLinha--;
@@ -122,6 +137,8 @@ public class Jogador extends CanvasJogo{
                 }           
                 else {
                     setMatrizNum(x, contador, 7);
+                    ganhaPontos();
+                    somaAcertos();
                 }
             }
             contadorEscavadeiraColuna--;            
@@ -141,6 +158,16 @@ public class Jogador extends CanvasJogo{
         }
         else if(tipo == 5 && contadorEscavadeiraColuna == 0){
             JOptionPane.showMessageDialog(null,"Suas escavadeiras de coluna acabaram");
+        }
+        
+        if(this.acertos == this.acertosMax){
+            JOptionPane.showMessageDialog(null,"Você Ganhou!");
+            System.exit(0);
+        }
+        
+        if(contadorPa == 0 && contadorDinamite == 0 && contadorDetector == 0 && contadorEscavadeiraLinha == 0 && contadorEscavadeiraColuna == 0){
+            JOptionPane.showMessageDialog(null,"O jogo acabou ;-;");
+            System.exit(0);
         }
     }
     
@@ -178,6 +205,23 @@ public class Jogador extends CanvasJogo{
     
     public int getContadorEscavadeiraColuna(){
         return this.contadorEscavadeiraColuna;
+    }
+    
+    public void ganhaPontos(){
+        this.pontos = this.pontos + 100;
+    }
+    public void perdePontos(){
+        this.pontos = this.pontos - 20;
+    }
+    
+    public void setAcertosMax(int valor){
+        this.acertosMax = valor;
+    }
+    public int getAcertosMax(){
+        return this.acertosMax;
+    }
+    public void somaAcertos(){
+        this.acertos++;
     }
 }
 
