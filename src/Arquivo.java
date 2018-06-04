@@ -1,4 +1,7 @@
 import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.event.MouseEvent;
 import java.awt.event.MouseListener;
 import java.io.BufferedReader;
@@ -111,7 +114,14 @@ public class Arquivo extends JFrame{
             setTitle("Escavação");
             getContentPane().add(jogador, BorderLayout.CENTER);
             
-            setSize((jogador.RECT_WIDTH * jogador.getLargura()), (jogador.RECT_HEIGHT * jogador.getAltura()+35));
+            if(jogador.RECT_WIDTH * jogador.getLargura() > 700){     
+                setSize((jogador.RECT_WIDTH * jogador.getLargura()), (jogador.RECT_HEIGHT * jogador.getAltura()));
+            }
+            else{
+                int falta;
+                falta = 700 - (jogador.RECT_WIDTH * jogador.getLargura());
+                setSize((jogador.RECT_WIDTH * jogador.getLargura() + falta), (jogador.RECT_HEIGHT * jogador.getAltura()));
+            }
             
             JButton botaoPa = new JButton("Pá x"+jogador.getContadorPa());
             JButton botaoDinamite = new JButton("Dinamite x"+jogador.getContadorDinamite());  

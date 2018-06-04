@@ -229,6 +229,7 @@ public class Jogador extends CanvasJogo{
     public int getPontos(){
         return this.pontos;
     }
+    
 }
 
 //JOptionPane.showMessageDialog(null,"mensagem");

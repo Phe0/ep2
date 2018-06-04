@@ -44,11 +44,11 @@ public class CanvasJogo extends Canvas {
 		}
 		
 		// Prepare an ImageIcon
-		ImageIcon icon = new ImageIcon("images/blue.png");
-		ImageIcon iconShotErro = new ImageIcon("images/red.png");
-                ImageIcon iconShotAcerto = new ImageIcon("images/green.png");
-                ImageIcon iconSeeAcerto = new ImageIcon("images/yellow.png");
-                ImageIcon iconSeeErro = new ImageIcon("images/purple.jpg");
+		ImageIcon icon = new ImageIcon("images/terra"+animationCounter +".jpg");
+		ImageIcon iconShotErro = new ImageIcon("images/erro.jpg");
+                ImageIcon iconShotAcerto = new ImageIcon("images/cristal.jpg");
+                ImageIcon iconSeeAcerto = new ImageIcon("images/seeAcerto.jpg");
+                ImageIcon iconSeeErro = new ImageIcon("images/seeErro.jpg");
 		// Prepare an Image object to be used by drawImage()
 		final Image img = icon.getImage();
 		final Image imgShotErro = iconShotErro.getImage();

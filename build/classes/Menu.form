@@ -28,12 +28,8 @@
                   <Group type="102" alignment="0" attributes="0">
                       <EmptySpace min="-2" pref="115" max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Component id="instrucoes" min="-2" max="-2" attributes="0"/>
-                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                              <Component id="rank" max="32767" attributes="0"/>
-                          </Group>
-                          <Component id="play" min="-2" pref="168" max="-2" attributes="0"/>
+                          <Component id="play" pref="168" max="32767" attributes="0"/>
+                          <Component id="instrucoes" max="32767" attributes="0"/>
                       </Group>
                   </Group>
                   <Group type="102" alignment="0" attributes="0">
@@ -51,10 +47,7 @@
               <EmptySpace pref="74" max="32767" attributes="0"/>
               <Component id="Imagem" min="-2" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="71" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="3" attributes="0">
-                  <Component id="instrucoes" alignment="3" min="-2" max="-2" attributes="0"/>
-                  <Component id="rank" alignment="3" min="-2" max="-2" attributes="0"/>
-              </Group>
+              <Component id="instrucoes" min="-2" max="-2" attributes="0"/>
               <EmptySpace type="unrelated" max="-2" attributes="0"/>
               <Component id="play" min="-2" pref="72" max="-2" attributes="0"/>
               <EmptySpace min="-2" pref="23" max="-2" attributes="0"/>
@@ -77,15 +70,6 @@
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="instrucoesActionPerformed"/>
-      </Events>
-    </Component>
-    <Component class="javax.swing.JButton" name="rank">
-      <Properties>
-        <Property name="text" type="java.lang.String" value="Rank"/>
-        <Property name="toolTipText" type="java.lang.String" value=""/>
-      </Properties>
-      <Events>
-        <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="rankActionPerformed"/>
       </Events>
     </Component>
     <Component class="javax.swing.JLabel" name="Imagem">
